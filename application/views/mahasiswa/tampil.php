@@ -32,8 +32,8 @@
             <td><?= $b->nama; ?></td>
             <td><?= $b->alamat; ?></td>
             <td>
-                <a href="" class="btn btn-warning">Edit</a> ||
-                <a href="<?=base_url();?>/mahasiswa/hapusMhs/<?= $b->nim;?>" class="btn btn-danger">Hapus</a>
+                <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal<?= $b->nim; ?>">Edit</button> ||
+                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalHapus<?= $b->nim; ?>">Hapus</button>
             </td>
             </tr>
         <?php 
@@ -44,3 +44,106 @@
     </table>
     </div>
 </div>
+
+<!-- Modal Edit Mhs -->
+<?php foreach($mhs->result() as $modal){?>
+    <div class="modal fade" id="exampleModal<?= $modal->nim; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Edit Data Mahasiswa</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+        <form action="<?=base_url();?>mahasiswa/editMhs" method="post">
+        <table>
+            <tr>
+                <td width="150px">
+                    <label>NIM</label>
+                </td>
+                <td>
+                    <div class="form-group">
+                        <input name="nim" type="text" class="form-control" placeholder="Masukan NIM" style="width:125px;" maxlength="10" value="<?= $modal->nim; ?>"> 
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label >Nama</label>
+                </td>
+                <td>
+                    <div class="form-group">
+                        <input name="nama" type="text" class="form-control" placeholder="Masukan Nama" style="width:280px;" maxlength="30" value="<?= $modal->nama; ?>">
+                    </div>
+                </td> 
+            </tr>
+            <tr>
+                <td> 
+                    <label>Tanggal Lahir</label>
+                </td>
+                <td> 
+                    <div class="form-group">
+                        <input name="tgl_lahir" type="date" class="form-control" placeholder="dd/mm/yyyy" style="width:145px;" maxlength="10" value="<?= $modal->tanggal_lahir; ?>"> 
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label >Alamat</label>
+                </td>
+                <td>
+                    <div class="form-group">
+                        <textarea name="alamat" class="form-control" rows="2" style="width:280px;"><?= $modal->alamat; ?></textarea>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><label >Jenis Kelamin</label></td>
+                <td>
+                    <div class="form-group">
+                    <select name="jenis_kelamin" class="form-control" style="width:125px;">
+                    <option value="Pria" <?php if($modal->jenis_kelamin === "Pria"){echo 'selected';} ?>>Pria</option>
+                    <option value="Wanita" <?php if($modal->jenis_kelamin === "Wanita"){echo 'selected';} ?>>Wanita</option>
+                    <option value="another">another</option>
+                    </select>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Save changes</button>
+            </form>
+        </div>
+        </div>
+    </div>
+    </div>
+<?php } ?>
+
+
+<!-- Modal -->
+<?php foreach($mhs->result() as $hapus){?>
+<div class="modal fade" id="exampleModalHapus<?= $hapus->nim;?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Hapus Data Mahasiswa</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Apa Anda Yakin Ingin Menghapus NIM <u><?= $hapus->nim.'</u> ('.$hapus->nama.') ?';?>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+        <a href="<?= base_url();?>mahasiswa/hapusMhs/<?=$hapus->nim?>" class="btn btn-primary"> Iya</a>
+      </div>
+    </div>
+  </div>
+</div>
+<?php } ?>

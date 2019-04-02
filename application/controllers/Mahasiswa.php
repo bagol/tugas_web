@@ -62,4 +62,20 @@ class Mahasiswa extends CI_Controller{
         redirect('/mahasiswa/tampilData/');
     }
 
+    function editMhs(){
+        $data = array(
+            'nama' => $this->input->post('nama'),
+            'tanggal_lahir' => $this->input->post('tgl_lahir'),
+            'alamat' => $this->input->post('alamat'),
+            'jenis_kelamin' => $this->input->post('jenis_kelamin')
+        );
+        $where = array('nim' => $this->input->post('nim'));
+        if($this->M_mahasiswa->updateMhs($data,$where)){
+            $this->session->set_flashdata('pesan_berhasil', 'Berhasil Mengedit Data!!!');
+        }else{
+            $this->session->set_flashdata('pesan_gagal', 'Gagal Mengedit Data!!!');
+        }
+        redirect('/mahasiswa/tampilData/');
+    }
+
 }

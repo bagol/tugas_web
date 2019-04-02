@@ -14,7 +14,11 @@ class M_mahasiswa extends CI_Model{
     }
     function updateMhs($data,$where){
         $this->db->where($where);
-        $this->db->update('mhs', $data);
+        if($this->db->update('mhs', $data)){
+            return true;
+        }else{
+            return false;
+        }
     }
     function deletMhs($where){
         $this->db->where($where);
