@@ -4,7 +4,7 @@
         <div class="col-sm-8">
         <h1 class="text-center">Input Data Mahasiswa</h1>
         <hr>
-        <form action="<?=base_url();?>mahasiswa/tampilMahasiswa" method="post">
+        <form action="<?=base_url();?>mahasiswa/insertMahasiswa" method="post">
         <table>
             <tr>
                 <td width="150px"><label>NIM</label></td>
