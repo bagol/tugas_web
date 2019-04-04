@@ -4,11 +4,11 @@
         <div class="col-sm-8">
         <h1 class="text-center">Input Data Dosen</h1>
         <hr>
-        <form action="<?=base_url();?>dosen/tampilDosen" method="post">
+        <form action="<?=base_url();?>dosen/insertDosen" method="post">
         <table>
             <tr>
-                <td width="150px"><label>NID</label></td>
-                <td><div class="form-group"><input name="nid" type="text" class="form-control" placeholder="Masukan NID" style="width:125px;" maxlength="10"> </div></td>
+                <td width="150px"><label>NIDN</label></td>
+                <td><div class="form-group"><input name="nidn" type="text" class="form-control" placeholder="Masukan NID" style="width:125px;" maxlength="10"> </div></td>
             </tr>
             <tr>
                 <td><label >Nama</label></td>
@@ -19,7 +19,7 @@
             <tr>
                 <td><label >Kode Mata Kuliah</label></td>
                 <td><div class="form-group">
-                <input name="kode_matkul" type="text" class="form-control" placeholder="Masukan Kode Mata Kuliah" style="width:280px;" maxlength="10"></div>
+                <input name="kode_matakuliah" type="text" class="form-control" placeholder="Masukan Kode Mata Kuliah" style="width:280px;" maxlength="10"></div>
                 </td> 
             </tr>
             <tr>

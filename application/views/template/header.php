@@ -23,10 +23,10 @@
           <a class="nav-link" href="<?=base_url()?>mahasiswa/tampilData">Mahasiswa </a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="<?=base_url()?>dosen">Dosen </a>
+          <a class="nav-link" href="<?=base_url()?>dosen/tampilDataDosen">Dosen </a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="<?=base_url()?>mataKuliah">Matakuliah </a>
+          <a class="nav-link" href="<?=base_url()?>mataKuliah/tampilMatkul">Matakuliah </a>
         </li>
       </ul>
     </div>

@@ -4,16 +4,16 @@
         <div class="col-sm-8">
         <h1 class="text-center">Input Data Mata Kuliah</h1>
         <hr>
-        <form action="<?= base_url();?>mataKuliah/tampilMatakuliah" method="post">
+        <form action="<?= base_url();?>mataKuliah/insertMatkul" method="post">
         <table>
             <tr>
                 <td width="150px"><label>Kode Mata Kuliah</label></td>
-                <td><div class="form-group"><input name="kode_matkul" type="text" class="form-control" placeholder="Kode" style="width:122px;" maxlength="10"> </div></td>
+                <td><div class="form-group"><input name="kode_matakuliah" type="text" class="form-control" placeholder="Kode" style="width:122px;" maxlength="10"> </div></td>
             </tr>
             <tr>
                 <td><label >Nama Mata Kuliah</label></td>
                 <td><div class="form-group">
-                <input name="nama_matkul" type="text" class="form-control" placeholder="Masukan Nama Mata Kuliah" style="width:280px;" maxlength="30"></div>
+                <input name="nama" type="text" class="form-control" placeholder="Masukan Nama Mata Kuliah" style="width:280px;" maxlength="30"></div>
                 </td> 
             </tr>
             <tr>
